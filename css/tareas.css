@@ -10,8 +10,13 @@ header{
   color: white;
   padding: 1em;
 }
+#guardarTarea{
+  background: #EF8354;
+  color: white;
+}
 #agregar{
   background: #4F5D75;
+  border: 1px solid #4F5D75;
   color: white;
 }
 
@@ -20,4 +25,17 @@ header{
   margin: auto;
   margin-top: 2em;
   height: 30em;
+}
+
+.tarjetas{
+  width: 90%;
+  background: black;
+  height: 20em;
+  margin: auto;
+  margin-top: 2em;
+}
+.tarjetaD{
+  width: 20em;
+  margin-top: 2em;
+
 }
