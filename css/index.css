@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pattaya&display=swap');
+/*
+font-family: 'Indie Flower', cursive;
+font-family: 'Pattaya', sans-serif;
+*/
+
+body{
+    background-image: url(../img/fondoI.png);
+    background-size: cover;
+}
+.padre {
+    height: 35rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hijo {
+    background:#4f5d75;
+    width: 22em;
+    height: 25em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    color: aliceblue;
+  }
+  button.btn{
+      background-color: #ef8354;
+      color: #4f5d75;
+      font-size: 1.2em;
+  }
+  label{
+      font-size: 1.5em;
+  }
+
+  #titulo{
+    font-family: 'Indie Flower', cursive;
+    margin-bottom: 6rem;
+  }

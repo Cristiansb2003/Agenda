@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pattaya&display=swap');
+body, h1{
+  padding: 0;
+  margin: 0;
+    font-family: 'Indie Flower', cursive;
+}
+
+header{
+  background: #EF8354;
+  color: white;
+  padding: 1em;
+}
+#agregar{
+  background: #4F5D75;
+  color: white;
+}
+
+.contenedor{
+  width: 90%;
+  margin: auto;
+  margin-top: 2em;
+  height: 30em;
+}
