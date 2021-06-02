@@ -3,7 +3,8 @@ $(document).ready(function(){
     var url = "paginas/tareas.html";
 
     function guardarNombre(dato){
-        localStorage.setItem("nombre", dato);
+      let arrayD = [dato];
+        localStorage.setItem("nombre", JSON.stringify(arrayD));
     }
     function revisar(){
       if (!(localStorage.getItem("nombre")==null)){
