@@ -20,6 +20,11 @@ header{
   color: white;
 }
 
+#Salir{
+  background: #EF8354;
+  color: white;
+}
+
 .contenedor{
   width: 90%;
   margin: auto;
@@ -37,4 +42,9 @@ header{
   width: 100%;
   margin-top: 2em;
 
+}
+#botones{
+  display: flex;
+  flex-direction: row;
+    justify-content: space-around;
 }

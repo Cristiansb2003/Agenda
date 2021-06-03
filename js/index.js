@@ -3,21 +3,28 @@ $(document).ready(function(){
     var url = "paginas/tareas.html";
 
     function guardarNombre(dato){
-      let arrayD = [dato];
+      let arrayD = [dato, 0];
         localStorage.setItem("nombre", JSON.stringify(arrayD));
     }
     function revisar(){
       if (!(localStorage.getItem("nombre")==null)){
            $(location).attr('href', url);
       }else{
-        alert("re")
+      }
+    }
+    function validar() {
+      var nombre = $("#nombre").val();
+      if (nombre != "") {
+        guardarNombre(nombre);
+        $(location).attr('href', url);
+      }else{
+        alert("Completa los campos");
       }
     }
     entrar.click(function(){
         var nombre = $("#nombre").val();
-        console.log(nombre)
-        guardarNombre(nombre);
-        $(location).attr('href', url);
+       validar();
+        
     });
     revisar();
 });

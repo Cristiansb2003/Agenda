@@ -3,49 +3,8 @@ $(document).ready(function () {
   nombre = JSON.parse(nombre);
   var nombreV = nombre[0];
   var agregarTarjeta = $("#guardarTarea");
-
-  function agregarTarea() {
-    //tarea = [Titulo, Descripcion];
-
-    var Titulo = $("#titulo").val();
-    var Descripcion = $("#descripcion").val();
-    let arrayD = localStorage.getItem("nombre");
-    arrayD = JSON.parse(arrayD);
-    console.log("Datos "+arrayD);
-    arrayD.push(Titulo);
-    arrayD.push(Descripcion);
-    console.log("Datos pero nuevos: "+arrayD);
-    localStorage.setItem("nombre", JSON.stringify(arrayD));
-    var cantidad = (arrayD.length-1)/2;
-    console.log(cantidad);
-   // for (var i = 1; i <= cantidad; i++) {
-    //  if (i % 2 == 0) {
-     //   crearFila(arrayD[i + 1], arrayD[i + 2]);
-     // } else {
-     //   crearFila(arrayD[i], arrayD[i + 1]);
-     // }
-   // }
-   
-   var x = 1;
-   var y = 2;
-   var pase = false;
-   
-   for(let i =1; i<=cantidad; i++){
-    console.log("no entre")
-     if(pase){
-      x = x+2;
-      y = y+2;
-      crearFila(arrayD[x], arrayD[y]);
-      console.log("hola");
-     }else{
-       pase = true;
-       crearFila(arrayD[x], arrayD[y]);
-       console.log("primero");
-     }
-     
-     
-   }
-  }
+  var salir = $("#Salir");
+  var url = "../index.html";
 
   function crearFila(Titulo, DescripcionD) {
     var contenedor1 = $("<div>");
@@ -66,10 +25,59 @@ $(document).ready(function () {
     $("#lista").after(descripcion2);
   }
 
+  function agregarTarea() {
+    var Titulo = $("#titulo").val();
+    var Descripcion = $("#descripcion").val();
+    let arrayD = localStorage.getItem("nombre");
+
+    arrayD = JSON.parse(arrayD);
+    arrayD.push(Titulo);
+    arrayD.push(Descripcion);
+    arrayD[1] = arrayD[1] + 2;
+    localStorage.setItem("nombre", JSON.stringify(arrayD));
+    crearFila(arrayD[arrayD[1]], arrayD[arrayD[1] + 1]);
+  }
+
+  function mostrarDatos() {
+    let arrayD = localStorage.getItem("nombre");
+    arrayD = JSON.parse(arrayD);
+    if (arrayD.length >= 3) {
+      var cantidad = (arrayD.length - 2) / 2;
+      var x = 2;
+      var y = 3;
+      var pase = false;
+      for (let i = 1; i <= cantidad; i++) {
+        if (pase) {
+          x = x + 2;
+          y = y + 2;
+          crearFila(arrayD[x], arrayD[y]);
+        } else {
+          pase = true;
+          crearFila(arrayD[x], arrayD[y]);
+        }
+      }
+    }
+  }
+  mostrarDatos();
+
   $("#bienvenida").text("Bienvenido " + nombreV);
 
+  function validar() {
+    var Titulo = $("#titulo").val();
+    var Descripcion = $("#descripcion").val();
+    if (Titulo != "" && Descripcion != "") {
+      agregarTarea();
+    }else{
+      alert("Completa los campos");
+    }
+  }
   agregarTarjeta.click(function () {
-    agregarTarea();
+    var posicion = nombre[2];
+    validar();
     $('input[type="text"]').val("");
+  });
+  salir.click(function(){
+    localStorage.clear();
+    $(location).attr('href', url);
   });
 });
